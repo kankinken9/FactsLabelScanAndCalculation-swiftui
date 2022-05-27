@@ -7,22 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A102E4D6283F8AF5007E3D55 /* FoodLabel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A102E4D4283F8AF5007E3D55 /* FoodLabel.xcdatamodeld */; };
 		A136B949283A2C0D00691796 /* FactsLabelScanAndCalculation_swiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A136B948283A2C0D00691796 /* FactsLabelScanAndCalculation_swiftuiApp.swift */; };
-		A136B94B283A2C0D00691796 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A136B94A283A2C0D00691796 /* ContentView.swift */; };
 		A136B94D283A2C0F00691796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A136B94C283A2C0F00691796 /* Assets.xcassets */; };
 		A136B950283A2C0F00691796 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A136B94F283A2C0F00691796 /* Preview Assets.xcassets */; };
-		A136B952283A2C0F00691796 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = A136B951283A2C0F00691796 /* Persistence.swift */; };
-		A136B955283A2C0F00691796 /* FactsLabelScanAndCalculation_swiftui.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A136B953283A2C0F00691796 /* FactsLabelScanAndCalculation_swiftui.xcdatamodeld */; };
+		A136B95C283A38AE00691796 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A136B95B283A38AE00691796 /* HomeView.swift */; };
+		A14B9609283FAC5E0085A40C /* FoodDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B9608283FAC5E0085A40C /* FoodDetailView.swift */; };
+		A14B960B283FB7BD0085A40C /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B960A283FB7BD0085A40C /* SettingView.swift */; };
+		A1A5B61B28404FE000E41A67 /* LabelML.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = A1A5B61A28404FE000E41A67 /* LabelML.mlmodel */; };
+		A1A5B61D2840541400E41A67 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A5B61C2840541400E41A67 /* UIImage+Extension.swift */; };
+		A1A5B62128405E9000E41A67 /* ScanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A5B62028405E9000E41A67 /* ScanData.swift */; };
+		A1A5B62528405EAC00E41A67 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A5B62428405EAC00E41A67 /* ScannerView.swift */; };
+		A1A5B62728405EB700E41A67 /* TextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A5B62628405EB700E41A67 /* TextRecognizer.swift */; };
+		A1BD565A283F7C2F00DF2C6F /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BD5659283F7C2F00DF2C6F /* ScanView.swift */; };
+		A1BD565D283F7C7A00DF2C6F /* FoodInfoTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BD565C283F7C7A00DF2C6F /* FoodInfoTable.swift */; };
+		A1BD565F283F7EE700DF2C6F /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BD565E283F7EE700DF2C6F /* DataController.swift */; };
+		A1BD5665283F81EA00DF2C6F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BD5664283F81EA00DF2C6F /* ContentView.swift */; };
+		A1E62C9F283A615D00D9C696 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E62C9E283A615D00D9C696 /* AnalysisView.swift */; };
+		A1E62CA4283A628B00D9C696 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E62CA3283A628B00D9C696 /* HistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A102E4D5283F8AF5007E3D55 /* FoodLabel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodLabel.xcdatamodel; sourceTree = "<group>"; };
 		A136B945283A2C0D00691796 /* FactsLabelScanAndCalculation-swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FactsLabelScanAndCalculation-swiftui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A136B948283A2C0D00691796 /* FactsLabelScanAndCalculation_swiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsLabelScanAndCalculation_swiftuiApp.swift; sourceTree = "<group>"; };
-		A136B94A283A2C0D00691796 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A136B94C283A2C0F00691796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A136B94F283A2C0F00691796 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A136B951283A2C0F00691796 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		A136B954283A2C0F00691796 /* FactsLabelScanAndCalculation_swiftui.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FactsLabelScanAndCalculation_swiftui.xcdatamodel; sourceTree = "<group>"; };
+		A136B95B283A38AE00691796 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A14B9608283FAC5E0085A40C /* FoodDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailView.swift; sourceTree = "<group>"; };
+		A14B960A283FB7BD0085A40C /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		A1A5B61A28404FE000E41A67 /* LabelML.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = LabelML.mlmodel; sourceTree = "<group>"; };
+		A1A5B61C2840541400E41A67 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		A1A5B62028405E9000E41A67 /* ScanData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanData.swift; sourceTree = "<group>"; };
+		A1A5B62428405EAC00E41A67 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		A1A5B62628405EB700E41A67 /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
+		A1BD5659283F7C2F00DF2C6F /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		A1BD565C283F7C7A00DF2C6F /* FoodInfoTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodInfoTable.swift; sourceTree = "<group>"; };
+		A1BD565E283F7EE700DF2C6F /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		A1BD5664283F81EA00DF2C6F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A1E62C9E283A615D00D9C696 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
+		A1E62CA3283A628B00D9C696 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +80,12 @@
 			isa = PBXGroup;
 			children = (
 				A136B948283A2C0D00691796 /* FactsLabelScanAndCalculation_swiftuiApp.swift */,
-				A136B94A283A2C0D00691796 /* ContentView.swift */,
+				A1BD5664283F81EA00DF2C6F /* ContentView.swift */,
+				A1A5B61E28405DD900E41A67 /* ML */,
+				A1BD5660283F7EED00DF2C6F /* DateBase */,
+				A1E62CA2283A623500D9C696 /* TabBarPage */,
+				A1A5B61F28405E4200E41A67 /* OCR */,
 				A136B94C283A2C0F00691796 /* Assets.xcassets */,
-				A136B951283A2C0F00691796 /* Persistence.swift */,
-				A136B953283A2C0F00691796 /* FactsLabelScanAndCalculation_swiftui.xcdatamodeld */,
 				A136B94E283A2C0F00691796 /* Preview Content */,
 			);
 			path = "FactsLabelScanAndCalculation-swiftui";
@@ -71,6 +97,64 @@
 				A136B94F283A2C0F00691796 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A14B9607283FAC3B0085A40C /* FoodDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A14B9608283FAC5E0085A40C /* FoodDetailView.swift */,
+			);
+			path = FoodDetail;
+			sourceTree = "<group>";
+		};
+		A1A5B61E28405DD900E41A67 /* ML */ = {
+			isa = PBXGroup;
+			children = (
+				A1A5B61A28404FE000E41A67 /* LabelML.mlmodel */,
+				A1A5B61C2840541400E41A67 /* UIImage+Extension.swift */,
+			);
+			path = ML;
+			sourceTree = "<group>";
+		};
+		A1A5B61F28405E4200E41A67 /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				A1A5B62028405E9000E41A67 /* ScanData.swift */,
+				A1A5B62428405EAC00E41A67 /* ScannerView.swift */,
+				A1A5B62628405EB700E41A67 /* TextRecognizer.swift */,
+			);
+			path = OCR;
+			sourceTree = "<group>";
+		};
+		A1BD565B283F7C6C00DF2C6F /* TestView */ = {
+			isa = PBXGroup;
+			children = (
+				A1BD565C283F7C7A00DF2C6F /* FoodInfoTable.swift */,
+			);
+			path = TestView;
+			sourceTree = "<group>";
+		};
+		A1BD5660283F7EED00DF2C6F /* DateBase */ = {
+			isa = PBXGroup;
+			children = (
+				A1BD565E283F7EE700DF2C6F /* DataController.swift */,
+				A102E4D4283F8AF5007E3D55 /* FoodLabel.xcdatamodeld */,
+			);
+			path = DateBase;
+			sourceTree = "<group>";
+		};
+		A1E62CA2283A623500D9C696 /* TabBarPage */ = {
+			isa = PBXGroup;
+			children = (
+				A1BD565B283F7C6C00DF2C6F /* TestView */,
+				A136B95B283A38AE00691796 /* HomeView.swift */,
+				A1E62C9E283A615D00D9C696 /* AnalysisView.swift */,
+				A1BD5659283F7C2F00DF2C6F /* ScanView.swift */,
+				A1E62CA3283A628B00D9C696 /* HistoryView.swift */,
+				A14B960A283FB7BD0085A40C /* SettingView.swift */,
+				A14B9607283FAC3B0085A40C /* FoodDetail */,
+			);
+			path = TabBarPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,10 +227,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A136B952283A2C0F00691796 /* Persistence.swift in Sources */,
-				A136B94B283A2C0D00691796 /* ContentView.swift in Sources */,
+				A1BD565D283F7C7A00DF2C6F /* FoodInfoTable.swift in Sources */,
+				A1A5B61D2840541400E41A67 /* UIImage+Extension.swift in Sources */,
+				A1E62C9F283A615D00D9C696 /* AnalysisView.swift in Sources */,
+				A1A5B62528405EAC00E41A67 /* ScannerView.swift in Sources */,
+				A102E4D6283F8AF5007E3D55 /* FoodLabel.xcdatamodeld in Sources */,
 				A136B949283A2C0D00691796 /* FactsLabelScanAndCalculation_swiftuiApp.swift in Sources */,
-				A136B955283A2C0F00691796 /* FactsLabelScanAndCalculation_swiftui.xcdatamodeld in Sources */,
+				A14B960B283FB7BD0085A40C /* SettingView.swift in Sources */,
+				A1BD5665283F81EA00DF2C6F /* ContentView.swift in Sources */,
+				A1BD565A283F7C2F00DF2C6F /* ScanView.swift in Sources */,
+				A136B95C283A38AE00691796 /* HomeView.swift in Sources */,
+				A1BD565F283F7EE700DF2C6F /* DataController.swift in Sources */,
+				A14B9609283FAC5E0085A40C /* FoodDetailView.swift in Sources */,
+				A1A5B61B28404FE000E41A67 /* LabelML.mlmodel in Sources */,
+				A1E62CA4283A628B00D9C696 /* HistoryView.swift in Sources */,
+				A1A5B62728405EB700E41A67 /* TextRecognizer.swift in Sources */,
+				A1A5B62128405E9000E41A67 /* ScanData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +374,7 @@
 				DEVELOPMENT_TEAM = 9UB4C72887;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = ScannerUse;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -307,6 +404,7 @@
 				DEVELOPMENT_TEAM = 9UB4C72887;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = ScannerUse;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -349,13 +447,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A136B953283A2C0F00691796 /* FactsLabelScanAndCalculation_swiftui.xcdatamodeld */ = {
+		A102E4D4283F8AF5007E3D55 /* FoodLabel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A136B954283A2C0F00691796 /* FactsLabelScanAndCalculation_swiftui.xcdatamodel */,
+				A102E4D5283F8AF5007E3D55 /* FoodLabel.xcdatamodel */,
 			);
-			currentVersion = A136B954283A2C0F00691796 /* FactsLabelScanAndCalculation_swiftui.xcdatamodel */;
-			path = FactsLabelScanAndCalculation_swiftui.xcdatamodeld;
+			currentVersion = A102E4D5283F8AF5007E3D55 /* FoodLabel.xcdatamodel */;
+			path = FoodLabel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
