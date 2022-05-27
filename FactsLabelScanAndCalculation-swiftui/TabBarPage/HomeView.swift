@@ -87,45 +87,15 @@ struct HomeView: View {
     //    @EnvironmentObject var settings: UserData
     
     
+    @State private var ThisData: [DataItem] = []
+    
     var body: some View {
         List{
-            //            Text(String())
+            //            Text("Your age \(userAge)")
+            BarChartView(
+                title: "Daily kacl", data: ThisData)
+            .frame(width: 320, height: 500, alignment: .center)
             
-            
-            
-            //
-            //                        ForEach(Foodinfos) {food in
-            //
-            ////                            protein += food.protein
-            ////
-            ////                            fatTotal += food.fatTotal
-            ////                            fatSaturated += food.fatSaturated
-            ////                            fatTrans += food.fatTrans
-            ////
-            ////                            carbohydrates += food.carbohydrates
-            ////                            sugars += food.sugars
-            ////
-            ////                            sodium += food.sodium
-            ////                            fiber += food.fiber
-            //            //                kcal += food.kcal
-            //
-            //                            NavigationLink {
-            //                                FoodDetailView(food: food)
-            //                            } label: {
-            //                                HStack {
-            //                                    Text(food.foodName ?? "Unknown Title")
-            //                                    //                        Spacer()
-            //                                    //                        VStack{
-            //                                    //                            Text(food.timestamp ?? Date() , style: .date)
-            //                                    //                            Text(food.timestamp ?? Date() , style: .time)
-            //                                    //                        }
-            //                                }
-            //                            }
-            //                        }
-            
-            //            Double(kcal) = Foodinfos.map { $0.protein }.reduce(0, +)
-            
-            Text("Your age \(userAge)")
             Section(header: Text("Your Recommended kcal limit")){
                 HStack{
                     Text("kcal")
@@ -134,10 +104,6 @@ struct HomeView: View {
                         .multilineTextAlignment(.trailing)
                 }
             }
-//            .onDisappear{
-//                SumKcal()
-//
-//            }
             
             Section(header: Text("Your age Recommended Dietary Intake(RDI)")){
                 HomelListText(textlabel: "Protein", textvalue: proteinList, todayvalue: Foodinfos.map { $0.protein }.reduce(0, +))
@@ -151,50 +117,44 @@ struct HomeView: View {
                 HomelListText(textlabel: "Fiber", textvalue: fiberList, todayvalue: Foodinfos.map { $0.fiber }.reduce(0, +))
             }
         }
+        .onAppear{
+            KcalData()
+            SumKcal()
+        }
     }
     
-//    func SumKcal(){
-////        protein = Foodinfos.map { $0.protein }.reduce(0, +)
-////        fatTotal = Foodinfos.map { $0.fatTotal }.reduce(0, +)
-////        fatSaturated Foodinfos.map { $0.fatSaturated }.reduce(0, +)
-////        fatTrans Foodinfos.map { $0.fatTrans }.reduce(0, +)
-////
-////        carbohydrates Foodinfos.map { $0.carbohydrates }.reduce(0, +)
-////        sugars Foodinfos.map { $0.sugars }.reduce(0, +)
-////        sodium = Foodinfos.map { $0.sodium }.reduce(0, +)
-////        fiber Foodinfos.map { $0.fiber }.reduce(0, +)
-//        let Total = 0.0
-////
-//        Total = (Foodinfos.map { $0.protein }.reduce(0, +) * 4 / 0.25)
-//        + (Foodinfos.map { $0.fatTotal }.reduce(0, +) * 9 / 0.25)
-//        + Foodinfos.map { $0.fatSaturated }.reduce(0, +)
-//        + Foodinfos.map { $0.fatTrans }.reduce(0, +)
-//        + (Foodinfos.map { $0.carbohydrates }.reduce(0, +) * 4 / 0.55)
-//        + (Foodinfos.map { $0.sugars }.reduce(0, +) * 4 / 0.10)
-//        + (Foodinfos.map { $0.sodium }.reduce(0, +) * 1800)
-//        + (Foodinfos.map { $0.fiber }.reduce(0, +) / 0.014)
-//
-//
-////        let Total = Foodinfos.map { $0.protein }.reduce(0, +) * 4 / 0.25
-////        + Foodinfos.map { $0.fatTotal }.reduce(0, +) * 9 / 0.25
-////        + Foodinfos.map { $0.fatSaturated }.reduce(0, +)
-////        + Foodinfos.map { $0.fatTrans }.reduce(0, +)
-////
-////        + Foodinfos.map { $0.carbohydrates }.reduce(0, +) * 4 / 0.55
-////        + Foodinfos.map { $0.sugars }.reduce(0, +) * 4 / 0.10
-////        + Foodinfos.map { $0.sodium }.reduce(0, +) * 1800
-////        + Foodinfos.map { $0.fiber }.reduce(0, +) / 0.014
-////
-////        sodiumList = Double(kcalList) / 1800
-////        sugarsList = Double(kcalList) * 0.10 / 4
-////        fatTotalList = Double(kcalList) * 0.25 / 9
-////        proteinList = Double(kcalList) * 0.25 / 4
-////        carbohydratesList = Double(kcalList) * 0.55 / 4
-////        fiberList = Double(kcalList) * 0.014
-//
-////        let Total = protein * 4 / 0.25 + fatTotal * 9 / 0.25
-////        kcal = Int(Total)
-//    }
+    func KcalData(){
+        var FnData: [DataItem] = []
+        FnData.append(DataItem(name: "Pro", value: Foodinfos.map { $0.protein }.reduce(0, +)))
+        FnData.append(DataItem(name: "FTo", value: Foodinfos.map { $0.fatTotal }.reduce(0, +)))
+        FnData.append(DataItem(name: "FSt", value: Foodinfos.map { $0.fatSaturated }.reduce(0, +)))
+        FnData.append(DataItem(name: "FTs", value: Foodinfos.map { $0.fatTrans }.reduce(0, +)))
+        
+        FnData.append(DataItem(name: "Ca", value: Foodinfos.map { $0.carbohydrates }.reduce(0, +)))
+        FnData.append(DataItem(name: "Su", value: Foodinfos.map { $0.sugars }.reduce(0, +)))
+        FnData.append(DataItem(name: "So", value: Foodinfos.map { $0.sodium }.reduce(0, +)))
+        FnData.append(DataItem(name: "Fi", value: Foodinfos.map { $0.fiber }.reduce(0, +)))
+        ThisData = FnData
+    }
+    
+    func SumKcal(){
+        var Total = 0.0
+        
+        
+        Total = Foodinfos.map {(
+            $0.protein * 4 / 0.25 +
+            $0.fatTotal * 9 / 0.25 +
+            $0.fatSaturated +
+            $0.fatTrans +
+            $0.carbohydrates  * 4 / 0.55 +
+            $0.sugars * 4 / 0.10 +
+            $0.sodium  * 1800 +
+            $0.fiber / 0.014
+        )
+        }.reduce(0, +)
+        
+        kcal = Int(Total)
+    }
 }
 
 struct HomelListText: View {

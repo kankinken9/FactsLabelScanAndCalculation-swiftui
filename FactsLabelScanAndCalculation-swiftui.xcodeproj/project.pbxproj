@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		A102E4D6283F8AF5007E3D55 /* FoodLabel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A102E4D4283F8AF5007E3D55 /* FoodLabel.xcdatamodeld */; };
+		A10D564C2840CB0B00C21507 /* BarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10D564B2840CB0B00C21507 /* BarChart.swift */; };
+		A10D564F2840CB8800C21507 /* ChartView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10D564E2840CB8800C21507 /* ChartView1.swift */; };
+		A10D56512840CD2D00C21507 /* ChartView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10D56502840CD2D00C21507 /* ChartView2.swift */; };
+		A10D56532840CDED00C21507 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10D56522840CDED00C21507 /* BarView.swift */; };
+		A10D56552840D09400C21507 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10D56542840D09400C21507 /* ChartView.swift */; };
 		A136B949283A2C0D00691796 /* FactsLabelScanAndCalculation_swiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A136B948283A2C0D00691796 /* FactsLabelScanAndCalculation_swiftuiApp.swift */; };
 		A136B94D283A2C0F00691796 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A136B94C283A2C0F00691796 /* Assets.xcassets */; };
 		A136B950283A2C0F00691796 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A136B94F283A2C0F00691796 /* Preview Assets.xcassets */; };
@@ -29,6 +34,11 @@
 
 /* Begin PBXFileReference section */
 		A102E4D5283F8AF5007E3D55 /* FoodLabel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FoodLabel.xcdatamodel; sourceTree = "<group>"; };
+		A10D564B2840CB0B00C21507 /* BarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChart.swift; sourceTree = "<group>"; };
+		A10D564E2840CB8800C21507 /* ChartView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView1.swift; sourceTree = "<group>"; };
+		A10D56502840CD2D00C21507 /* ChartView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView2.swift; sourceTree = "<group>"; };
+		A10D56522840CDED00C21507 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		A10D56542840D09400C21507 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		A136B945283A2C0D00691796 /* FactsLabelScanAndCalculation-swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FactsLabelScanAndCalculation-swiftui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A136B948283A2C0D00691796 /* FactsLabelScanAndCalculation_swiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsLabelScanAndCalculation_swiftuiApp.swift; sourceTree = "<group>"; };
 		A136B94C283A2C0F00691796 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +70,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A10D564D2840CB1C00C21507 /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				A10D564B2840CB0B00C21507 /* BarChart.swift */,
+				A10D564E2840CB8800C21507 /* ChartView1.swift */,
+				A10D56502840CD2D00C21507 /* ChartView2.swift */,
+				A10D56522840CDED00C21507 /* BarView.swift */,
+				A10D56542840D09400C21507 /* ChartView.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
 		A136B93C283A2C0D00691796 = {
 			isa = PBXGroup;
 			children = (
@@ -83,8 +105,8 @@
 				A1BD5664283F81EA00DF2C6F /* ContentView.swift */,
 				A1A5B61E28405DD900E41A67 /* ML */,
 				A1BD5660283F7EED00DF2C6F /* DateBase */,
-				A1E62CA2283A623500D9C696 /* TabBarPage */,
 				A1A5B61F28405E4200E41A67 /* OCR */,
+				A1E62CA2283A623500D9C696 /* TabBarPage */,
 				A136B94C283A2C0F00691796 /* Assets.xcassets */,
 				A136B94E283A2C0F00691796 /* Preview Content */,
 			);
@@ -146,13 +168,14 @@
 		A1E62CA2283A623500D9C696 /* TabBarPage */ = {
 			isa = PBXGroup;
 			children = (
+				A10D564D2840CB1C00C21507 /* Chart */,
 				A1BD565B283F7C6C00DF2C6F /* TestView */,
+				A14B9607283FAC3B0085A40C /* FoodDetail */,
 				A136B95B283A38AE00691796 /* HomeView.swift */,
 				A1E62C9E283A615D00D9C696 /* AnalysisView.swift */,
 				A1BD5659283F7C2F00DF2C6F /* ScanView.swift */,
 				A1E62CA3283A628B00D9C696 /* HistoryView.swift */,
 				A14B960A283FB7BD0085A40C /* SettingView.swift */,
-				A14B9607283FAC3B0085A40C /* FoodDetail */,
 			);
 			path = TabBarPage;
 			sourceTree = "<group>";
@@ -230,6 +253,9 @@
 				A1BD565D283F7C7A00DF2C6F /* FoodInfoTable.swift in Sources */,
 				A1A5B61D2840541400E41A67 /* UIImage+Extension.swift in Sources */,
 				A1E62C9F283A615D00D9C696 /* AnalysisView.swift in Sources */,
+				A10D564F2840CB8800C21507 /* ChartView1.swift in Sources */,
+				A10D56532840CDED00C21507 /* BarView.swift in Sources */,
+				A10D564C2840CB0B00C21507 /* BarChart.swift in Sources */,
 				A1A5B62528405EAC00E41A67 /* ScannerView.swift in Sources */,
 				A102E4D6283F8AF5007E3D55 /* FoodLabel.xcdatamodeld in Sources */,
 				A136B949283A2C0D00691796 /* FactsLabelScanAndCalculation_swiftuiApp.swift in Sources */,
@@ -241,6 +267,8 @@
 				A14B9609283FAC5E0085A40C /* FoodDetailView.swift in Sources */,
 				A1A5B61B28404FE000E41A67 /* LabelML.mlmodel in Sources */,
 				A1E62CA4283A628B00D9C696 /* HistoryView.swift in Sources */,
+				A10D56552840D09400C21507 /* ChartView.swift in Sources */,
+				A10D56512840CD2D00C21507 /* ChartView2.swift in Sources */,
 				A1A5B62728405EB700E41A67 /* TextRecognizer.swift in Sources */,
 				A1A5B62128405E9000E41A67 /* ScanData.swift in Sources */,
 			);
