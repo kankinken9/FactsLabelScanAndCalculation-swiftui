@@ -91,41 +91,42 @@ struct HomeView: View {
     
     var body: some View {
         
-        //        NavigationView{
-        List{
-            //            Text("Your age \(userAge)")
-            
-            Section(header: Text("Your Recommended kcal limit")){
-                HStack{
-                    Text("kcal")
-                    Spacer()
-                    Text("\(kcal) / \(kcalList)")
-                        .multilineTextAlignment(.trailing)
-                        .foregroundColor(kcal > kcalList ? .red : .black)
-                }
-            }
-            Section(header: Text("Your age Recommended Dietary Intake(RDI)")){
-                HomelListText(textlabel: "Protein", textvalue: proteinList, todayvalue: Foodinfos.map { $0.protein }.reduce(0, +))
-                HomelListText(textlabel: "Fat Total", textvalue: fatTotalList, todayvalue: Foodinfos.map { $0.fatTotal }.reduce(0, +))
-                HomelListText(textlabel: "Fat  Saturated", textvalue: fatSaturatedList, todayvalue: Foodinfos.map { $0.fatSaturated }.reduce(0, +))
-                HomelListText(textlabel: "Fat Trans", textvalue: fatTransList, todayvalue: Foodinfos.map { $0.fatTrans }.reduce(0, +))
+        NavigationView{
+            List{
+                //            Text("Your age \(userAge)")
                 
-                HomelListText(textlabel: "Carbohydrates", textvalue: carbohydratesList, todayvalue: Foodinfos.map { $0.carbohydrates }.reduce(0, +))
-                HomelListText(textlabel: "Sugars", textvalue: sugarsList, todayvalue: Foodinfos.map { $0.sugars }.reduce(0, +))
-                HomelListText(textlabel: "Sodium", textvalue: sodiumList, todayvalue: Foodinfos.map { $0.sodium }.reduce(0, +))
-                HomelListText(textlabel: "Fiber", textvalue: fiberList, todayvalue: Foodinfos.map { $0.fiber }.reduce(0, +))
+                Section(header: Text("Your Recommended kcal limit")){
+                    HStack{
+                        Text("kcal")
+                        Spacer()
+                        Text("\(kcal) / \(kcalList)")
+                            .multilineTextAlignment(.trailing)
+                            .foregroundColor(kcal > kcalList ? .red : .black)
+                    }
+                }
+                Section(header: Text("Your age Recommended Dietary Intake(RDI)")){
+                    HomelListText(textlabel: "Protein", textvalue: proteinList, todayvalue: Foodinfos.map { $0.protein }.reduce(0, +))
+                    HomelListText(textlabel: "Fat Total", textvalue: fatTotalList, todayvalue: Foodinfos.map { $0.fatTotal }.reduce(0, +))
+                    HomelListText(textlabel: "Fat  Saturated", textvalue: fatSaturatedList, todayvalue: Foodinfos.map { $0.fatSaturated }.reduce(0, +))
+                    HomelListText(textlabel: "Fat Trans", textvalue: fatTransList, todayvalue: Foodinfos.map { $0.fatTrans }.reduce(0, +))
+                    
+                    HomelListText(textlabel: "Carbohydrates", textvalue: carbohydratesList, todayvalue: Foodinfos.map { $0.carbohydrates }.reduce(0, +))
+                    HomelListText(textlabel: "Sugars", textvalue: sugarsList, todayvalue: Foodinfos.map { $0.sugars }.reduce(0, +))
+                    HomelListText(textlabel: "Sodium", textvalue: sodiumList, todayvalue: Foodinfos.map { $0.sodium }.reduce(0, +))
+                    HomelListText(textlabel: "Fiber", textvalue: fiberList, todayvalue: Foodinfos.map { $0.fiber }.reduce(0, +))
+                }
+                BarChartView(
+                    title: "Daily kacl", data: ThisData)
+                .frame(width: 320, height: 500, alignment: .center)
+                
+                
             }
-            BarChartView(
-                title: "Daily kacl", data: ThisData)
-            .frame(width: 320, height: 500, alignment: .center)
-            
-            
+            .onAppear{
+                KcalData()
+                SumKcal()
+            }
+            .navigationBarTitle("", displayMode: .inline)
         }
-        .onAppear{
-            KcalData()
-            SumKcal()
-        }
-        //        }
     }
     
     func KcalData(){

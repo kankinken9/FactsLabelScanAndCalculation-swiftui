@@ -26,7 +26,13 @@ final class TextRecognizer{
                 do{
                     try handler.perform([request])
                     guard let observations = request.results as? [VNRecognizedTextObservation] else{return ""}
-                    return observations.compactMap({$0.topCandidates(1).first?.string}).joined(separator: "\n")
+                    return observations.compactMap({
+                        $0.topCandidates(1).first?.string
+                    }).joined(separator: ",\n ")
+                    
+//                    let text = observations.compactMap({
+//                        $0.topCandidates(1).first?.string
+//                    }).joined(separator: ",\n ")
                 }
                 catch{
                     print(error)

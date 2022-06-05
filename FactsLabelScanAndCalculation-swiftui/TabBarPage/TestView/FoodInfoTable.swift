@@ -14,7 +14,7 @@ struct FoodInfoTable: View {
     
     //Form
     @Environment(\.managedObjectContext) var moc
-//    @Environment(\.dismiss) var dismiss
+    //    @Environment(\.dismiss) var dismiss
     @FocusState private var amountIsFocused: Bool
     
     @State private var foodName = ""
@@ -157,13 +157,16 @@ struct FoodInfoTable: View {
     }
     
     private func makeScannerView()-> ScannerView {
+        //        let cameraScan: VNDocumentCameraScan
         ScannerView(completion: {
             textPerPage in
             if let outputText = textPerPage?.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines){
                 let newScanData = ScanData(content: outputText)
                 self.texts.append(newScanData)
             }
-            print(texts)
+            print("this the text:____", texts)
+            print("this the text0", texts[0].content)
+            foodName = texts[0].content
             self.showScannerSheet = false
         })
     }
