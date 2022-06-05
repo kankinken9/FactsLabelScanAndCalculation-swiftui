@@ -90,11 +90,10 @@ struct HomeView: View {
     @State private var ThisData: [DataItem] = []
     
     var body: some View {
+        
+        //        NavigationView{
         List{
             //            Text("Your age \(userAge)")
-            BarChartView(
-                title: "Daily kacl", data: ThisData)
-            .frame(width: 320, height: 500, alignment: .center)
             
             Section(header: Text("Your Recommended kcal limit")){
                 HStack{
@@ -102,13 +101,13 @@ struct HomeView: View {
                     Spacer()
                     Text("\(kcal) / \(kcalList)")
                         .multilineTextAlignment(.trailing)
+                        .foregroundColor(kcal > kcalList ? .red : .black)
                 }
             }
-            
             Section(header: Text("Your age Recommended Dietary Intake(RDI)")){
                 HomelListText(textlabel: "Protein", textvalue: proteinList, todayvalue: Foodinfos.map { $0.protein }.reduce(0, +))
                 HomelListText(textlabel: "Fat Total", textvalue: fatTotalList, todayvalue: Foodinfos.map { $0.fatTotal }.reduce(0, +))
-                HomelListText(textlabel: "Fat Saturated", textvalue: fatSaturatedList, todayvalue: Foodinfos.map { $0.fatSaturated }.reduce(0, +))
+                HomelListText(textlabel: "Fat  Saturated", textvalue: fatSaturatedList, todayvalue: Foodinfos.map { $0.fatSaturated }.reduce(0, +))
                 HomelListText(textlabel: "Fat Trans", textvalue: fatTransList, todayvalue: Foodinfos.map { $0.fatTrans }.reduce(0, +))
                 
                 HomelListText(textlabel: "Carbohydrates", textvalue: carbohydratesList, todayvalue: Foodinfos.map { $0.carbohydrates }.reduce(0, +))
@@ -116,11 +115,17 @@ struct HomeView: View {
                 HomelListText(textlabel: "Sodium", textvalue: sodiumList, todayvalue: Foodinfos.map { $0.sodium }.reduce(0, +))
                 HomelListText(textlabel: "Fiber", textvalue: fiberList, todayvalue: Foodinfos.map { $0.fiber }.reduce(0, +))
             }
+            BarChartView(
+                title: "Daily kacl", data: ThisData)
+            .frame(width: 320, height: 500, alignment: .center)
+            
+            
         }
         .onAppear{
             KcalData()
             SumKcal()
         }
+        //        }
     }
     
     func KcalData(){
@@ -142,20 +147,42 @@ struct HomeView: View {
         
         
         Total = Foodinfos.map {(
-            $0.protein * 4 / 0.25 +
-            $0.fatTotal * 9 / 0.25 +
+            //            $0.protein * 4 / 0.25 +
+            //            $0.fatTotal * 9 / 0.25 +
+            //            $0.fatSaturated +
+            //            $0.fatTrans +
+            //            $0.carbohydrates  * 4 / 0.55 +
+            //            $0.sugars * 4 / 0.10 +
+            ////            $0.sodium  * 1800 +
+            //            $0.sodium +
+            //            $0.fiber / 0.014
+            
+            
+            $0.protein * 4 +
+            $0.fatTotal * 9 +
             $0.fatSaturated +
             $0.fatTrans +
-            $0.carbohydrates  * 4 / 0.55 +
-            $0.sugars * 4 / 0.10 +
-            $0.sodium  * 1800 +
-            $0.fiber / 0.014
+            $0.carbohydrates * 4 +
+            $0.sugars * 4 +
+            //            $0.sodium  * 1800 +
+            $0.sodium +
+            $0.fiber
+            
+            //            $0.protein * 0.25 / 4 +
+            //            $0.fatTotal * 0.25 / 9  +
+            //            $0.fatSaturated +
+            //            $0.fatTrans +
+            //            $0.carbohydrates * 0.55 / 4 +
+            //            $0.sugars * 0.10 / 4 +
+            ////            $0.sodium  * 1800 +
+            //            $0.sodium / 1800 +
+            //            $0.fiber * 0.014
         )
         }.reduce(0, +)
         
         kcal = Int(Total)
     }
-}
+} 
 
 struct HomelListText: View {
     let textlabel: String
@@ -169,6 +196,7 @@ struct HomelListText: View {
             Spacer()
             Text("\(todayvalue, specifier: "%.1f") / \(textvalue, specifier: "%.1f") g")
                 .multilineTextAlignment(.trailing)
+                .foregroundColor(todayvalue > textvalue ? .red : .black)
         }
     }
 }

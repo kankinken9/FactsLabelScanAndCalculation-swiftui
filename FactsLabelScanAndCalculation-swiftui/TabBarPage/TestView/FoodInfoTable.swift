@@ -31,11 +31,24 @@ struct FoodInfoTable: View {
     @State private var fiber = 0.0
     @State private var energy = 0.0
     
+    
+    @State private var persize = 1.0
+    
     var body: some View {
         NavigationView {
             Form {
                 Section {
                     TextField("Name of Food", text: $foodName)
+                }
+                
+                Section {
+                    HStack{
+                        Text("Serving Size")
+                        TextField("Size", value: $persize, format: .number)
+                            .multilineTextAlignment(.trailing)
+                            .keyboardType(.decimalPad)
+                            .focused($amountIsFocused)
+                    }
                 }
                 
                 Section {
@@ -160,16 +173,16 @@ struct FoodInfoTable: View {
         newFood.id = UUID()
         newFood.foodName = foodName
         
-        newFood.protein = protein
-        newFood.fatTotal = fatTotal
-        newFood.fatSaturated = fatSaturated
-        newFood.fatTrans = fatTrans
+        newFood.protein = protein * persize
+        newFood.fatTotal = fatTotal * persize
+        newFood.fatSaturated = fatSaturated * persize
+        newFood.fatTrans = fatTrans * persize
         
-        newFood.carbohydrates = carbohydrates
-        newFood.sugars = sugars
-        newFood.sodium = sodium
-        newFood.fiber = fiber
-        newFood.energy = energy
+        newFood.carbohydrates = carbohydrates * persize
+        newFood.sugars = sugars * persize
+        newFood.sodium = sodium / 1000 * persize
+        newFood.fiber = fiber * persize
+        newFood.energy = energy * persize
         
         newFood.timestamp = Date.now
         

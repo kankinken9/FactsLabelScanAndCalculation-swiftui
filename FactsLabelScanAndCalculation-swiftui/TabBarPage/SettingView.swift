@@ -85,6 +85,7 @@ struct SettingView: View {
                     //                    SettingListText(textlabel: "Energy", textvalue: energyList)
                 }
             }
+            .navigationTitle("Setting")
         }
     }
     
@@ -138,11 +139,12 @@ struct SettingView: View {
         
         //        sodiumList = 1.5
         
-        sodiumList = Double(kcalList) / 1800
-        sugarsList = Double(kcalList) * 0.10 / 4
-        fatTotalList = Double(kcalList) * 0.25 / 9
         proteinList = Double(kcalList) * 0.25 / 4
+        fatTotalList = Double(kcalList) * 0.25 / 9
         carbohydratesList = Double(kcalList) * 0.55 / 4
+        
+        sugarsList = Double(kcalList) * 0.10 / 4
+        sodiumList = Double(kcalList) / 1800
         fiberList = Double(kcalList) * 0.014
     }
 }

@@ -7,31 +7,37 @@
 
 import SwiftUI
 
-struct ContentView: View {    
+struct ContentView: View {
+//    @State private var tabSelection = 1
+//    @State private var selectedTab = 1
     var body: some View {
-        TabView{
-            
+//        TabView(selection: $selectedTab) {
+            TabView (){
+                
             HomeView().tabItem {
                 Label("Home", systemImage: "house.circle")
-            }
+            }.tag(1)
             
             AnalysisView().tabItem {
                 Label("Analysis", systemImage: "chart.bar.xaxis")
-            }
+            }.tag(2)
             
             FoodInfoTable().tabItem {
                 Label("New Food", systemImage: "camera.circle")
-            }
+            }.tag(3)
             
-            ScanView().tabItem {
-                Label("Scan", systemImage: "camera.circle")
-            }
             HistoryView().tabItem {
                 Label("History", systemImage: "book.circle")
-            }
+            }.tag(4)
+            
             SettingView().tabItem {
                 Label("Setting", systemImage: "gearshape.circle.fill")
-            }
+            }.tag(5)
+                
+            ScanView().tabItem {
+                Label("Debug AI & Scan", systemImage: "camera.circle")
+            }.tag(6)
+            
 
         }
     }

@@ -28,10 +28,10 @@ struct ChartView: View {
                 .font(.title)
 
             BarChartView(
-                title: "kacl", data: chartData)
+                title: "kilocalorie (kcal) per day", data: chartData)
                 .frame(width: 350, height: 500, alignment: .center)
 
-            Spacer()
+//            Spacer()
         }
     }
 }

@@ -69,25 +69,44 @@ struct AnalysisView: View {
     @AppStorage("Userkcal") var kcalList = 2700
     
     
+    @State private var showTable = 3
+    
+    let reportday = [3, 7]
+    
     var body: some View {
         
-        NavigationView {
-            List{
-                NavigationLink {
+            VStack{
+                Picker("", selection:$showTable) {
+                    ForEach(reportday, id: \.self) {
+                        Text("\($0) Day")
+                    }
+                }
+                .pickerStyle(.segmented)
+                
+                
+//                print(showTable)
+                
+                if(showTable == 3){
                     ThreeDayView()
-                } label: {
-                    Text("3 Day")
-                }
-                NavigationLink {
+                }else{
                     WeekDayView()
-                } label: {
-                    Text("7 Day")
                 }
-                NavigationLink {
-                    MonthDayView()
-                } label: {
-                    Text("1 Month")
-                }
+                Text("Day")
+                //                NavigationLink {
+                //                    ThreeDayView()
+                //                } label: {
+                //                    Text("3 Day")
+                //                }
+                //                NavigationLink {
+                //                    WeekDayView()
+                //                } label: {
+                //                    Text("7 Day")
+                //                }
+                //                NavigationLink {
+                //                    MonthDayView()
+                //                } label: {
+                //                    Text("1 Month")
+                //                }
                 
                 
                 
@@ -144,7 +163,7 @@ struct AnalysisView: View {
                 //                    HomelListText(textlabel: "Fiber", textvalue: fiberList, todayvalue: Foodinfos.map { $0.fiber }.reduce(0, +))
                 //                }
             }
-        }
+        
     }
 }
 
@@ -208,7 +227,7 @@ struct ThreeDayView: View {
         sortDescriptors: [ NSSortDescriptor(keyPath: \Foodinfo.timestamp, ascending: false) ],
         predicate: NSPredicate(format: "timestamp >= %@ && timestamp <= %@", Calendar.current.startOfDay(for: Date() - 86400 * 3) as CVarArg, Calendar.current.startOfDay(for: Date() + 86400) as CVarArg)
     ) var Foodinfos: FetchedResults<Foodinfo>
-        
+    
     @State private var ThisData: [DataItem] = [
         DataItem(name: "Mon", value: 898),
     ]
@@ -237,14 +256,14 @@ struct ThreeDayView: View {
                 }
                 .map {(
                     
-                    $0.protein * 4 / 0.25 +
-                    $0.fatTotal * 9 / 0.25 +
+                    $0.protein * 4 +
+                    $0.fatTotal * 9 +
                     $0.fatSaturated +
                     $0.fatTrans +
-                    $0.carbohydrates  * 4 / 0.55 +
-                    $0.sugars * 4 / 0.10 +
-                    $0.sodium  * 1800 +
-                    $0.fiber / 0.014
+                    $0.carbohydrates * 4 +
+                    $0.sugars * 4 +
+                    $0.sodium +
+                    $0.fiber
                 )
                 }.reduce(0, +)
             
@@ -254,26 +273,26 @@ struct ThreeDayView: View {
             //        }
             
             let calendarDate = Calendar.current.dateComponents([.day], from: Date() - TimeInterval(86400 * number))
-            FnData.append(DataItem(name: "\(calendarDate.day ?? 0)", value: daytotal))
+            FnData.append(DataItem(name: "\(calendarDate.day ?? 0) / 5", value: daytotal))
         }
-//        print(Foodinfos)
-//        print(
-//            Foodinfos.map {
-//                //                print("MAP : \($0)")
-//                print("time : \($0)")
-//            }
-//        )
-//        print("Day \(daytotal)")
-//        print(startday)
+        //        print(Foodinfos)
+        //        print(
+        //            Foodinfos.map {
+        //                //                print("MAP : \($0)")
+        //                print("time : \($0)")
+        //            }
+        //        )
+        //        print("Day \(daytotal)")
+        //        print(startday)
         //        print((startday, format: .dateTime.day().month().year())
         //        print((startday.date .dateTime.day().month().year())
-//        let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: Date())
-//        let calendarDate = Calendar.current.dateComponents([.day], from: Date())
-//        print(calendarDate.day)
+        //        let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: Date())
+        //        let calendarDate = Calendar.current.dateComponents([.day], from: Date())
+        //        print(calendarDate.day)
         
-//        let dateString = formatter.dateFormat = "dd"
-//        dateString = formatter.string(from: Date() )
-//        print(dateString)
+        //        let dateString = formatter.dateFormat = "dd"
+        //        dateString = formatter.string(from: Date() )
+        //        print(dateString)
         
         //        let dateFormatter = DateFormatter()
         //        dateFormatter.dateFormat = "MM/dd/yyyy"
@@ -327,22 +346,23 @@ struct WeekDayView: View {
                 }
                 .map {(
                     
-                    $0.protein * 4 / 0.25 +
-                    $0.fatTotal * 9 / 0.25 +
+                    $0.protein * 4 +
+                    $0.fatTotal * 9 +
                     $0.fatSaturated +
                     $0.fatTrans +
-                    $0.carbohydrates  * 4 / 0.55 +
-                    $0.sugars * 4 / 0.10 +
-                    $0.sodium  * 1800 +
-                    $0.fiber / 0.014
+                    $0.carbohydrates * 4 +
+                    $0.sugars * 4 +
+                    $0.sodium +
+                    $0.fiber
                 )
                 }.reduce(0, +)
             let calendarDate = Calendar.current.dateComponents([.day], from: Date() - TimeInterval(86400 * number))
-            FnData.append(DataItem(name: "\(calendarDate.day ?? 0)", value: daytotal))
+            FnData.append(DataItem(name: "\(calendarDate.day ?? 0) / 5", value: daytotal))
         }
         ThisData = FnData
     }
 }
+
 struct MonthDayView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(
@@ -381,14 +401,14 @@ struct MonthDayView: View {
                 }
                 .map {(
                     
-                    $0.protein * 4 / 0.25 +
-                    $0.fatTotal * 9 / 0.25 +
+                    $0.protein * 4 +
+                    $0.fatTotal * 9 +
                     $0.fatSaturated +
                     $0.fatTrans +
-                    $0.carbohydrates  * 4 / 0.55 +
-                    $0.sugars * 4 / 0.10 +
-                    $0.sodium  * 1800 +
-                    $0.fiber / 0.014
+                    $0.carbohydrates * 4 +
+                    $0.sugars * 4 +
+                    $0.sodium +
+                    $0.fiber
                 )
                 }.reduce(0, +)
             let calendarDate = Calendar.current.dateComponents([.day], from: Date() - TimeInterval(86400 * number))

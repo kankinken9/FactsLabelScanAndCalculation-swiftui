@@ -19,22 +19,36 @@ struct ScanView: View {
     
     var body: some View {
         NavigationView{
-            VStack{
-                if texts.count > 0{
-                    List{
-                        ForEach(texts){text in
-                            NavigationLink(
-                                destination:ScrollView{Text(text.content)},
-                                label: {
-                                    Text(text.content).lineLimit(1)
-                                })
+//            VStack{
+                
+                List{
+//                    Section{
+                        Button {
+                            calculateBedtime()
+                        } label: {
+                            Text("Check Me")
                         }
-                    }
+//                    }
+                    
+//                    Section{
+                        Text(classificationLabel)
+                            .padding()
+                            .font(.body)
+//                    }
+                    
+//                    Section{
+                        if texts.count > 0{
+                            ForEach(texts){text in
+                                NavigationLink(
+                                    destination:ScrollView{Text(text.content)},
+                                    label: {
+                                        Text(text.content).lineLimit(1)
+                                    })
+                            }
+                        }
+//                    }
                 }
-                else{
-                    Text("No scan yet").font(.title)
-                }
-            }
+//            }
             .navigationTitle("Scan OCR")
             .navigationBarItems(trailing: Button(action: {
                 self.showScannerSheet = true
@@ -64,6 +78,7 @@ struct ScanView: View {
     private func makeScannerView()-> ScannerView {
         ScannerView(completion: {
             textPerPage in
+            print("textPerPage : \(textPerPage)")
             if let outputText = textPerPage?.joined(separator: "\n").trimmingCharacters(in: .whitespacesAndNewlines){
                 let newScanData = ScanData(content: outputText)
                 self.texts.append(newScanData)
@@ -71,6 +86,7 @@ struct ScanView: View {
             self.showScannerSheet = false
         })
     }
+    
     
     func calculateBedtime() {
         do {
@@ -82,15 +98,15 @@ struct ScanView: View {
             let output = try? LabelML().prediction(image: buffer)
             
             if let output = output {
-                //                let results = output.classLabelProbs.sorted { $0.1 > $1.1 }
-                //                print("rer\(results)")
-                //                let result = results.map { (key, value) in
-                //                    return "\(key) = \(String(format: "%.2f", value * 100))%"
-                //                }.joined(separator: "\n")
-                //
-                //                self.classificationLabel = result
+                let results = output.classLabelProbs.sorted { $0.1 > $1.1 }
+                //                                print("rer\(results)")
+                let result = results.map { (key, value) in
+                    return "\(key) = \(String(format: "%.2f", value * 100))%"
+                }.joined(separator: "\n")
                 
-                self.classificationLabel = output.classLabel
+                self.classificationLabel = result
+                
+                // self.classificationLabel = output.classLabel
             }
             
             
